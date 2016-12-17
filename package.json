@@ -1,0 +1,32 @@
+{
+  "name": "pixie-dot",
+  "description": "Access template data with dot notation",
+  "version": "0.1.0",
+  "homepage": "https://github.com/seanc/pixie-dot",
+  "author": "Sean Wilson (https://imsean.me)",
+  "repository": "seanc/pixie-dot",
+  "bugs": {
+    "url": "https://github.com/seanc/pixie-dot/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "generategenerator"
+  ],
+  "dependencies": {
+    "object-path": "^0.11.3"
+  },
+  "devDependencies": {
+    "pixie": "^0.2.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
+  }
+}
