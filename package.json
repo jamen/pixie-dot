@@ -1,7 +1,7 @@
 {
   "name": "pixie-dot",
   "description": "Access template data with dot notation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/seanc/pixie-dot",
   "author": "Sean Wilson (https://imsean.me)",
   "repository": "seanc/pixie-dot",
