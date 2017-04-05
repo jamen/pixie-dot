@@ -1,28 +1,20 @@
 var test = require('tape')
-var spec = require('tap-spec')
-var render = require('pixie').render
-var dot = require('./index')
+var pixie = require('pixie')
+var dot = require('./')
 
-var template = '{{foo.bar}} bar'
+test('pixie-dot', function(t) {
+  t.plan(2)
 
-test('property access', function(t) {
-  t.plan(1)
+  var tmpl1 = pixie('foo {{hello.world}} bar')
+  var data1 = { hello: { world: 'earth' } }
+  t.is(dot(tmpl1, data1), 'foo earth bar', 'simple dots')
 
-  var data = { foo: { bar: 'foo' } }
-  var rendered = render(template, data, { engines: [dot] })
-
-  t.equal(rendered, 'foo bar')
+  var tmpl2 = pixie('qux {{foo.baz.2.meme}} baz')
+  var data2 = {
+    foo: {
+      bar: 'foo',
+      baz: [ 0, 1, { meme: 'kek' } ]
+    }
+  }
+  t.is(dot(tmpl2, data2), 'qux kek baz', 'dots with array')
 })
-
-test('undefined property access', function(t) {
-  t.plan(1)
-
-  var data = { foo: { baz: 'foo' } }
-  var rendered = render(template, data, { engines: [dot] })
-
-  t.equal(rendered, 'undefined bar')
-})
-
-test.createStream()
-  .pipe(spec())
-  .pipe(process.stdout)
